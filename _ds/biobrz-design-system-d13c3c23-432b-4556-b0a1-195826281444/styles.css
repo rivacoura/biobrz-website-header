@@ -1,0 +1,9 @@
+/* BIOBRZ Design System — Global Entry Point
+   Import this one file to load all design tokens and fonts.
+   Never add inline rules here; add them in tokens/ files instead. */
+
+@import './tokens/fonts.css';
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/effects.css';

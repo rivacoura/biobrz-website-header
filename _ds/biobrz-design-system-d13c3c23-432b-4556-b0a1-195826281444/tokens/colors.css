@@ -1,0 +1,82 @@
+/* BIOBRZ — Color Tokens
+   A sophisticated reinterpretation of the Brazilian flag:
+   forest green, golden amber, warm off-white, blue mist, black. */
+
+:root {
+  /* ── Green Scale ── forest, growth, trust, permanence */
+  --color-green-500: #3E7853;   /* Deep forest green — primary brand */
+  --color-green-400: #5A9070;   /* Medium green */
+  --color-green-300: #8DAA91;   /* Sage — muted, secondary use */
+  --color-green-200: #B8C9BA;   /* Light sage — borders, dividers */
+  --color-green-100: #DDE8DF;   /* Very light sage — subtle fills */
+  --color-green-50:  #EEF4EF;   /* Near-white green tint */
+
+  /* ── Gold Scale ── distinction, accent, direction */
+  --color-gold-500: #DDB830;   /* Warm golden amber — accent, CTA */
+  --color-gold-400: #E8CA62;   /* Medium gold */
+  --color-gold-300: #EED47C;   /* Light gold */
+  --color-gold-200: #F5E5A8;   /* Pale gold */
+  --color-gold-100: #FAF1C5;   /* Very pale gold — subtle fills */
+  --color-gold-50:  #FDF8E5;   /* Near-white gold tint */
+
+  /* ── Blue Scale ── precision, analysis, impartiality */
+  --color-blue-400: #B9CEDF;   /* Blue mist — bridge to financial world */
+  --color-blue-300: #C8D9E8;   /* Lighter blue mist */
+  --color-blue-200: #D6E4EF;   /* Soft blue */
+  --color-blue-100: #E7F0F8;   /* Very light blue */
+
+  /* ── Neutral ── */
+  --color-offwhite: #F5F1E6;   /* Warm off-white — premium background */
+  --color-white:    #FFFFFF;
+  --color-black:    #000000;
+  --color-gray-800: #1A1A1A;
+  --color-gray-600: #4A4A4A;
+  --color-gray-400: #8A8A8A;
+  --color-gray-200: #D4D4D4;
+  --color-gray-100: #F0F0F0;
+
+  /* ── Semantic Aliases ── */
+
+  /* Brand */
+  --color-brand-primary:    var(--color-green-500);
+  --color-brand-accent:     var(--color-gold-500);
+  --color-brand-background: var(--color-offwhite);
+  --color-brand-sky:        var(--color-blue-400);
+
+  /* Surfaces */
+  --color-surface-page:    var(--color-offwhite);
+  --color-surface-card:    var(--color-white);
+  --color-surface-inverse: var(--color-green-500);
+  --color-surface-dark:    var(--color-black);
+  --color-surface-accent:  var(--color-gold-500);
+
+  /* Text */
+  --color-text-primary:  var(--color-black);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-muted:    var(--color-green-300);
+  --color-text-inverse:  var(--color-white);
+  --color-text-accent:   var(--color-gold-500);
+  --color-text-on-accent: var(--color-black);
+  --color-text-on-green: var(--color-white);
+
+  /* Borders */
+  --color-border-subtle:  var(--color-green-100);
+  --color-border-default: var(--color-green-200);
+  --color-border-strong:  var(--color-green-300);
+
+  /* Interactive */
+  --color-cta-bg:   var(--color-gold-500);
+  --color-cta-text: var(--color-black);
+  --color-cta-hover: #C9A520;
+
+  /* Status */
+  --color-success: var(--color-green-500);
+  --color-warning: var(--color-gold-500);
+  --color-error:   #C0392B;
+  --color-info:    var(--color-blue-400);
+
+  /* Services */
+  --color-service-tax:      var(--color-green-500);
+  --color-service-advisory: var(--color-gold-500);
+  --color-service-audit:    var(--color-blue-400);
+}

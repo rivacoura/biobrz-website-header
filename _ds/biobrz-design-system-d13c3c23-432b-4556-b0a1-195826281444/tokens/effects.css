@@ -1,0 +1,66 @@
+/* BIOBRZ — Effects Tokens
+   Geometric precision: minimal rounding, clean shadows, purposeful motion. */
+
+:root {
+  /* ── Border Radius ──
+     BioBrz uses geometric, angular forms — minimal rounding only.
+     Never pill/fully-rounded except for badges/tags. */
+  --radius-none:   0px;
+  --radius-xs:     2px;    /* default for most elements */
+  --radius-sm:     4px;    /* subtle rounding for cards */
+  --radius-md:     6px;    /* dialogs, popovers */
+  --radius-lg:     12px;   /* large cards */
+  --radius-pill:   100px;  /* badges, chips */
+  --radius-circle: 50%;    /* avatars */
+
+  /* Semantic radius */
+  --radius-button:  var(--radius-xs);
+  --radius-input:   var(--radius-xs);
+  --radius-card:    var(--radius-sm);
+  --radius-badge:   var(--radius-pill);
+  --radius-tag:     var(--radius-xs);
+  --radius-dialog:  var(--radius-sm);
+
+  /* ── Shadows ──
+     Restrained — a premium house doesn't shout. */
+  --shadow-xs:   0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm:   0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-lg:   0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl:   0 16px 48px rgba(0, 0, 0, 0.14);
+
+  /* Semantic shadow */
+  --shadow-card:    var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-md);
+  --shadow-dropdown: var(--shadow-lg);
+  --shadow-dialog:  var(--shadow-xl);
+
+  /* Green-tinted shadows for cards on dark surfaces */
+  --shadow-green-sm: 0 2px 8px rgba(62, 120, 83, 0.15);
+  --shadow-green-md: 0 8px 24px rgba(62, 120, 83, 0.20);
+
+  /* ── Borders ── */
+  --border-width:       1px;
+  --border-width-thick: 2px;
+  --border-width-heavy: 3px;
+
+  /* ── Transitions ── */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1); /* @kind other */
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1); /* @kind other */
+  --ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */
+
+  --duration-fast:   100ms; /* @kind other */
+  --duration-base:   200ms; /* @kind other */
+  --duration-slow:   300ms; /* @kind other */
+  --duration-slower: 500ms; /* @kind other */
+
+  --transition-fast:   var(--duration-fast) var(--ease-default);
+  --transition-base:   var(--duration-base) var(--ease-default);
+  --transition-slow:   var(--duration-slow) var(--ease-default);
+
+  /* Common component transitions */
+  --transition-button: background-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+  --transition-card:   box-shadow var(--transition-base), transform var(--transition-base);
+  --transition-input:  border-color var(--transition-fast), box-shadow var(--transition-fast);
+}

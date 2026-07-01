@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/effects.css">
+  <script src="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;background:#F5F1E6;color:#000;-webkit-font-smoothing:antialiased}
+    @keyframes bioFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .bio-fadein{opacity:0;transform:translateY(28px)}
+    .bio-fadein.bio-visible{animation:bioFadeUp 0.72s cubic-bezier(0.22,1,0.36,1) both}
+    /* ── Animated underline ── */
+    .bio-ul{position:relative;display:inline;text-decoration:none}
+    .bio-ul::before{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:currentColor;transform-origin:right center;transform:scaleX(0);transition:transform 300ms cubic-bezier(0.4,0,0.2,1)}
+    .bio-ul:hover::before{transform-origin:left center;transform:scaleX(1)}
+    .bio-ul-active::before{transform:scaleX(1)}
+    /* ── Arrow stroke draw ── */
+    .bio-btn-arrow path{stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset 320ms cubic-bezier(0.4,0,0.2,1),transform 280ms cubic-bezier(0.22,1,0.36,1)}
+    a:hover .bio-btn-arrow path,button:hover .bio-btn-arrow path{stroke-dashoffset:0}
+    /* ── Underline inside buttons/links (texto only, sem flecha) ── */
+    .bio-ul-text{position:relative;display:inline}
+    .bio-ul-text::before{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:currentColor;transform-origin:right center;transform:scaleX(0);transition:transform 300ms cubic-bezier(0.4,0,0.2,1)}
+    a:hover .bio-ul-text::before,button:hover .bio-ul-text::before{transform-origin:left center;transform:scaleX(1)}
+    #contato-form input::placeholder,#contato-form textarea::placeholder{color:rgba(255,255,255,0.4)}
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:#F5F1E6">
+
+  <!-- ───────── HEADER ───────── -->
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:18px 56px;background:#13271A;border-bottom:1px solid rgba(221,184,48,0.18)">
+
+    <img src="assets/LogoHeader.png" alt="BioBrz" style="height:32px;width:auto;object-fit:contain;display:block">
+
+    <div style="display:flex;align-items:center;gap:48px">
+
+    <nav style="display:flex;align-items:center;gap:38px">
+      <a href="#home" class="bio-ul bio-ul-active" style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#DDB830">Home</a>
+      <a href="Tax.dc.html" class="bio-ul" style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 200ms" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='rgba(255,255,255,0.72)'">Tax</a>
+      <a href="Advisory.dc.html" class="bio-ul" style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 200ms" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='rgba(255,255,255,0.72)'">Advisory</a>
+      <a href="Audit.dc.html" class="bio-ul" style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 200ms" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='rgba(255,255,255,0.72)'">Audit</a>
+    </nav>
+
+    <a href="#contato" style="display:inline-flex;align-items:center;gap:9px;background:#DDB830;color:#13271A;padding:13px 24px;font-size:11.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#E8CA62';this.querySelector('svg').style.transform='translate(2px,-2px)'" onMouseOut="this.style.background='#DDB830';this.querySelector('svg').style.transform='translate(0,0)'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
+      <span class="bio-ul-text">Falar com especialista</span>
+      <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+    </a>
+
+    </div>
+
+  </header>
+
+  <!-- ───────── HERO ───────── -->
+  <section id="home" style="position:relative;overflow:hidden;display:flex;align-items:center;min-height:calc(100vh - 71px);padding:0 0 0 56px;gap:0">
+
+    <!-- video background -->
+    <video id="hero-bg-video" autoplay="" loop="" muted="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block">
+      <source src="uploads/magnific_video-upscale_aQeITspfSh.mp4" type="video/mp4">
+    </video>
+
+    <div style="flex:1;min-width:0;position:relative;z-index:2;max-width:620px;padding:72px 0 48px;align-self:center">
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:32px">
+        <x-import component-from-global-scope="BIOBRZDesignSystem_d13c3c.Badge" variant="subtle-green" size="lg" hint-size="auto,30px">Consultoria Tributária</x-import>
+        <x-import component-from-global-scope="BIOBRZDesignSystem_d13c3c.Badge" variant="subtle-green" size="lg" hint-size="auto,30px">Contabilidade</x-import>
+        <x-import component-from-global-scope="BIOBRZDesignSystem_d13c3c.Badge" variant="subtle-green" size="lg" hint-size="auto,30px">Auditoria Independente</x-import>
+      </div>
+
+      <h1 style="font-size: clamp(38px,5.4vw,80px); font-weight: 300; line-height: 1.06; letter-spacing: 0.005em; text-transform: uppercase; color: #13271A; margin-bottom: 36px">
+        <span style="background: #DDB830; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0.06em 0.2em; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.16em; text-decoration-color: #13271A; font-size: 45.99px; padding-top: 0.11em; padding-bottom: 0.11em; padding-left: 0.12em; padding-right: 0.12em">Todo patrimônio<br>carrega uma<br>história.</span>
+      </h1>
+
+      <p style="max-width:560px;font-size:19px;font-weight:400;line-height:1.6;color:#4A4A4A;margin-bottom:44px">
+        A BioBrz lê o que os outros não sabem ver. <strong style="color:#13271A;font-weight:600">15 anos</strong> transformando complexidade tributária em vantagem competitiva.
+      </p>
+
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <a href="#contato" style="display:inline-flex;align-items:center;gap:10px;background:#3E7853;color:#fff;padding:17px 34px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#326245';this.querySelector('svg').style.transform='translateX(5px)'" onMouseOut="this.style.background='#3E7853';this.querySelector('svg').style.transform='translateX(0)'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
+          <span class="bio-ul-text">Falar com especialista</span>
+          <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+        </a>
+        <a href="#servicos" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#13271A;padding:17px 30px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid rgba(19,39,26,0.25);transition:border-color 150ms,background 150ms" onMouseOver="this.style.borderColor='#3E7853';this.style.background='rgba(62,120,83,0.05)'" onMouseOut="this.style.borderColor='rgba(19,39,26,0.25)';this.style.background='transparent'">
+          <span class="bio-ul-text">Conhecer os serviços</span>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ───────── QUEM SOMOS ───────── -->
+  <section id="sobre" style="position:relative;background:#F5F1E6;color:#13271A;padding:128px 56px;border-top:1px solid rgba(19,39,26,0.1);overflow:hidden">
+
+    <div style="position:relative;max-width:1240px;margin:0 auto">
+
+      <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:64px;animation-delay:0s">
+        <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#3E7853">Quem Somos</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,0.95fr);gap:0">
+
+        <!-- LEFT — manifesto -->
+        <div style="padding-right:80px">
+
+          <h2 class="bio-fadein" style="font-size:clamp(30px,3.5vw,48px);font-weight:400;line-height:1.14;letter-spacing:0.01em;text-transform:uppercase;margin-bottom:40px;animation-delay:0.06s;text-wrap:balance">
+            <span style="color:#1A1A1A">Não somos um escritório de contabilidade comum.</span><br>
+            <span style="color:#3E7853;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:#DDB830">Somos um parceiro que enxerga o seu negócio por inteiro.</span>
+          </h2>
+
+          <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;max-width:540px;margin-bottom:26px;animation-delay:0.14s">
+            A BioBrz é uma boutique de consultoria tributária e auditoria independente que atua em três frentes integradas. Com <strong style="color:#13271A;font-weight:700">15 anos de mercado</strong>, a empresa se diferencia pelo envolvimento direto dos sócios em cada mandato.
+          </p>
+
+          <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;max-width:540px;margin-bottom:44px;animation-delay:0.2s">
+            Profissionais com capacidade técnica para identificar oportunidades onde outros enxergam apenas obrigações, e comprometimento para transformar cada análise em <strong style="color:#13271A;font-weight:700">impacto real no caixa do cliente</strong>.
+          </p>
+
+          <a href="#contato" class="bio-fadein" style="display:inline-flex;align-items:center;gap:11px;background:#3E7853;color:#fff;padding:17px 32px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;animation-delay:0.26s;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#326245';this.querySelector('svg').style.transform='translateX(5px)'" onMouseOut="this.style.background='#3E7853';this.querySelector('svg').style.transform='translateX(0)'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
+            <span class="bio-ul-text">Agendar conversa</span>
+            <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+          </a>
+
+        </div>
+
+        <!-- RIGHT — proof points -->
+        <div id="bio-stats-grid" style="border-left:1px solid rgba(19,39,26,0.14);padding-left:72px">
+
+          <div class="bio-fadein" style="padding-bottom:30px;animation-delay:0.16s">
+            <div class="bio-counter" data-value="15" data-suffix="+" style="font-size:clamp(52px,5.5vw,76px);font-weight:300;line-height:0.95;letter-spacing:-0.03em;color:#3E7853;margin-bottom:14px">0</div>
+            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:300px">Anos construindo resultados concretos para médias e grandes empresas</p>
+          </div>
+
+          <div class="bio-fadein" style="padding:30px 0;border-top:1px solid rgba(19,39,26,0.14);animation-delay:0.24s">
+            <div class="bio-counter" data-value="3" data-suffix="" style="font-size:clamp(52px,5.5vw,76px);font-weight:300;line-height:0.95;letter-spacing:-0.03em;color:#3E7853;margin-bottom:14px">0</div>
+            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:320px">Frentes integradas: Tax, Advisory e Audit, operando com os mesmos sócios e o mesmo padrão técnico</p>
+          </div>
+
+          <div class="bio-fadein" style="padding-top:30px;border-top:1px solid rgba(19,39,26,0.14);animation-delay:0.32s">
+            <div style="font-size:clamp(52px,5.5vw,76px);font-weight:300;line-height:0.95;letter-spacing:-0.03em;color:#3E7853;margin-bottom:14px"><span class="bio-counter" data-value="100" data-suffix="">0</span><span style="color:#DDB830">%</span></div>
+            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:300px">Dos mandatos com participação direta dos sócios fundadores, sem delegar o que importa</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── POR QUE A BIOBRZ ───────── -->
+  <section id="porque" style="position:relative;background:#13271A;color:#fff;padding:140px 56px;overflow:hidden">
+
+    <!-- subtle radial atmosphere -->
+    <div aria-hidden="true" style="position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:1100px;height:1100px;background:radial-gradient(circle,rgba(62,120,83,0.22) 0%,rgba(62,120,83,0) 62%);pointer-events:none;z-index:0"></div>
+
+    <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto">
+
+      <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:44px;animation-delay:0s">
+        <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#DDB830">Por que a BioBrz</span>
+      </div>
+
+      <h2 class="bio-fadein" style="font-size:clamp(34px,5vw,68px);font-weight:400;line-height:1.08;letter-spacing:0.01em;text-transform:uppercase;color:#fff;max-width:14ch;margin-bottom:88px;animation-delay:0.08s;text-wrap:balance">
+        A maioria das empresas paga <span style="color:#DDB830;font-weight:400">mais imposto</span> do que deve.
+      </h2>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:48px;border-top:1px solid rgba(255,255,255,0.14)">
+
+        <div class="bio-fadein bio-tilt-card" style="padding:40px 36px 40px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;animation-delay:0.14s;overflow:hidden;position:relative">
+          <div style="font-size:clamp(56px,5vw,82px);font-weight:200;line-height:1;letter-spacing:-0.04em;color:#DDB830;margin-bottom:38px">01</div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:22px">Profundidade Técnica</div>
+          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">Identificamos o que foi pago além do necessário, estruturamos o que deve ser pago daqui em diante. Não reagimos ao que o fisco exige, antecipamos.</p>
+        </div>
+
+        <div class="bio-fadein bio-tilt-card" style="padding:40px 36px 40px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;animation-delay:0.22s;overflow:hidden;position:relative">
+          <div style="font-size:clamp(56px,5vw,82px);font-weight:200;line-height:1;letter-spacing:-0.04em;color:#DDB830;margin-bottom:38px">02</div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:22px">Integração Real</div>
+          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">Tributário, contábil e auditoria não são serviços separados, são camadas do mesmo problema. Tratá-los de forma fragmentada é perder precisão, tempo e dinheiro.</p>
+        </div>
+
+        <div class="bio-fadein bio-tilt-card" style="padding:40px 36px 40px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;animation-delay:0.3s;overflow:hidden;position:relative">
+          <div style="font-size:clamp(56px,5vw,82px);font-weight:200;line-height:1;letter-spacing:-0.04em;color:#DDB830;margin-bottom:38px">03</div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:22px">Sócios no Mandato</div>
+          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">Em cada entrega, o sócio está presente. O cliente não contrata uma equipe genérica. Ele ganha um parceiro que enxerga o negócio por inteiro.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── NOSSAS FRENTES ───────── -->
+  <section id="frentes" style="position:relative;background:#F5F1E6;color:#13271A;padding:120px 56px;overflow:hidden">
+
+    <div style="position:relative;max-width:1240px;margin:0 auto">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:72px">
+
+        <!-- LEFT — texto -->
+        <div>
+          <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:48px;animation-delay:0s">
+            <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#3E7853">Nossas Frentes</span>
+          </div>
+
+          <h2 class="bio-fadein" style="font-size:clamp(30px,4vw,56px);font-weight:400;line-height:1.12;letter-spacing:0.01em;text-transform:uppercase;max-width:18ch;margin-bottom:40px;animation-delay:0.08s;text-wrap:balance">
+            <span style="display:block;color:#3E7853;font-weight:300;margin-bottom:6px">Tributário. Contábil. Independente.</span>
+            <span style="color:#3E7853;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:#DDB830">Três frentes. Tudo integrado.</span>
+          </h2>
+
+          <p class="bio-fadein" style="font-size:19px;font-weight:400;line-height:1.66;color:#4A4A4A;max-width:560px;animation-delay:0.16s">
+            Nascemos da integração entre consultoria tributária, contabilidade e auditoria para construir negócios que vão além dos números.
+          </p>
+        </div>
+
+        <!-- RIGHT — foto placeholder -->
+        <div class="bio-fadein" style="animation-delay:0.12s">
+          <image-slot id="frentes-photo" shape="rect" src="assets/frentes-photo.webp" placeholder="Arraste uma foto aqui" style="width:100%;height:420px;display:block"></image-slot>
+        </div>
+
+      </div>
+
+      <div style="border-bottom:1px solid rgba(19,39,26,0.16)">
+
+        <!-- CARD 01 — TAX -->
+        <div class="frente-card bio-fadein" style="border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.2s" data-open="false">
+          <div class="frente-header" style="display:flex;align-items:center;gap:32px;padding:34px 0;cursor:pointer">
+            <span style="flex-shrink:0;width:44px;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#3E7853">TAX</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:clamp(20px,2.3vw,29px);font-weight:500;letter-spacing:-0.01em;color:#13271A;line-height:1.1">CONSULTORIA TRIBUTÁRIA</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.22em;color:#DDB830;margin-top:7px">ESTRATÉGICA</div>
+            </div>
+            <div class="frente-arrow" style="flex-shrink:0;width:44px;height:44px;border:1.5px solid rgba(19,39,26,0.25);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#13271A;transition:background 200ms,border-color 200ms,color 200ms">
+              <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" style="transition:transform 420ms cubic-bezier(0.22,1,0.36,1)"><path d="M8 2v12M2 8h12"></path></svg>
+            </div>
+          </div>
+          <div class="frente-body" style="max-height:0;overflow:hidden;opacity:0;transition:max-height 520ms cubic-bezier(0.22,1,0.36,1),opacity 360ms ease">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:0 0 44px;align-items:start">
+              <p style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;margin:0">Identificamos o que foi pago além do necessário, estruturamos o que deve ser pago daqui em diante e transformamos a gestão tributária em uma das alavancas mais poderosas do seu negócio.</p>
+              <p style="font-size:clamp(22px,2vw,28px);font-weight:600;line-height:1.32;letter-spacing:-0.01em;text-transform:uppercase;color:#3E7853;margin:0">O imposto certo libera o crescimento.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 02 — ADV -->
+        <div class="frente-card bio-fadein" style="border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.28s">
+          <div class="frente-header" style="display:flex;align-items:center;gap:32px;padding:34px 0;cursor:pointer">
+            <span style="flex-shrink:0;width:44px;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#3E7853">ADV</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:clamp(20px,2.3vw,29px);font-weight:500;letter-spacing:-0.01em;color:#13271A;line-height:1.1">CONTABILIDADE CONSULTIVA</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.22em;color:#DDB830;margin-top:7px">ADVISORY</div>
+            </div>
+            <div class="frente-arrow" style="flex-shrink:0;width:44px;height:44px;border:1.5px solid rgba(19,39,26,0.25);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#13271A;transition:background 200ms,border-color 200ms,color 200ms">
+              <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" style="transition:transform 420ms cubic-bezier(0.22,1,0.36,1)"><path d="M8 2v12M2 8h12"></path></svg>
+            </div>
+          </div><!-- advisory-header-end -->
+          <div class="frente-body" style="max-height:0;overflow:hidden;opacity:0;transition:max-height 520ms cubic-bezier(0.22,1,0.36,1),opacity 360ms ease">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:0 0 44px;align-items:start">
+              <p style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;margin:0">Mais do que registrar o passado, a BioBrz Advisory interpreta o presente e antecipa o futuro, entregando uma contabilidade que participa ativamente das melhores decisões do negócio.</p>
+              <p style="font-size:clamp(22px,2vw,28px);font-weight:600;line-height:1.32;letter-spacing:-0.01em;text-transform:uppercase;color:#3E7853;margin:0">Números que orientam. Contabilidade que decide.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 03 — AUD -->
+        <div class="frente-card bio-fadein" style="border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.36s">
+          <div class="frente-header" style="display:flex;align-items:center;gap:32px;padding:34px 0;cursor:pointer">
+            <span style="flex-shrink:0;width:44px;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#3E7853">AUD</span>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:clamp(20px,2.3vw,29px);font-weight:500;letter-spacing:-0.01em;color:#13271A;line-height:1.1">AUDITORIA INDEPENDENTE</div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.22em;color:#DDB830;margin-top:7px">AUDIT</div>
+            </div>
+            <div class="frente-arrow" style="flex-shrink:0;width:44px;height:44px;border:1.5px solid rgba(19,39,26,0.25);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#13271A;transition:background 200ms,border-color 200ms,color 200ms">
+              <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" style="transition:transform 420ms cubic-bezier(0.22,1,0.36,1)"><path d="M8 2v12M2 8h12"></path></svg>
+            </div>
+          </div>
+          <div class="frente-body" style="max-height:0;overflow:hidden;opacity:0;transition:max-height 520ms cubic-bezier(0.22,1,0.36,1),opacity 360ms ease">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:0 0 44px;align-items:start">
+              <p style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;margin:0">Um olhar externo, técnico e imparcial sobre as demonstrações contábeis da sua empresa, construindo a confiança que investidores, credores e o mercado precisam ver antes de avançar.</p>
+              <p style="font-size:clamp(22px,2vw,28px);font-weight:600;line-height:1.32;letter-spacing:-0.01em;text-transform:uppercase;color:#3E7853;margin:0">Credibilidade que o mercado reconhece.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────── CONTATO ───────── -->
+  <section id="contato" style="position:relative;background:#000;color:#fff;padding:128px 56px;border-top:1px solid rgba(19,39,26,0.1);overflow:hidden">
+
+    <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);gap:104px;align-items:start">
+
+      <!-- LEFT — info -->
+      <div>
+        <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:32px;animation-delay:0s">
+          <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6)">Fale com a BioBrz</span>
+        </div>
+
+        <h2 class="bio-fadein" style="font-size:clamp(36px,4.4vw,60px);font-weight:400;line-height:1.04;letter-spacing:0.01em;text-transform:uppercase;margin-bottom:30px;animation-delay:0.08s">
+          <span style="color:#fff">Comece uma</span><br>
+          <span style="color:#DDB830">conversa.</span>
+        </h2>
+
+        <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.82);max-width:380px;margin-bottom:64px;animation-delay:0.16s">
+          Sem pitch. Sem pressa. Entendemos o seu negócio e identificamos onde estão as oportunidades que você ainda não viu.
+        </p>
+
+        <div class="bio-fadein" style="display:flex;flex-direction:column;gap:30px;animation-delay:0.24s">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#DDB830;margin-bottom:9px">Localização</div>
+            <div style="font-size:17px;font-weight:500;color:#fff">Brasília, DF · Atendimento nacional</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#DDB830;margin-bottom:9px">E-mail</div>
+            <a href="mailto:contato@biobrz.com.br" style="font-size:17px;font-weight:500;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:1px;transition:border-color 160ms" onMouseOver="this.style.borderColor='rgba(255,255,255,0.6)'" onMouseOut="this.style.borderColor='rgba(255,255,255,0.3)'">contato@biobrz.com.br</a>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#DDB830;margin-bottom:9px">Site</div>
+            <div style="font-size:17px;font-weight:500;color:#fff">biobrz.com.br</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — form -->
+      <form id="contato-form" class="bio-fadein" novalidate="" style="animation-delay:0.2s">
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px 28px">
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">Nome <span style="color:#DDB830">*</span></label>
+            <input type="text" name="nome" required="" placeholder="Seu nome" style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 16px;font-family:inherit;font-size:15px;color:#fff;outline:none;transition:border-color 160ms,box-shadow 160ms" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'">
+          </div>
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">Empresa <span style="color:#DDB830">*</span></label>
+            <input type="text" name="empresa" required="" placeholder="Nome da empresa" style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 16px;font-family:inherit;font-size:15px;color:#fff;outline:none;transition:border-color 160ms,box-shadow 160ms" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'">
+          </div>
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">E-mail <span style="color:#DDB830">*</span></label>
+            <input type="email" name="email" required="" placeholder="seu@email.com" style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 16px;font-family:inherit;font-size:15px;color:#fff;outline:none;transition:border-color 160ms,box-shadow 160ms" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'">
+          </div>
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">Telefone</label>
+            <input type="tel" name="telefone" placeholder="(00) 00000-0000" style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 16px;font-family:inherit;font-size:15px;color:#fff;outline:none;transition:border-color 160ms,box-shadow 160ms" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'">
+          </div>
+
+          <div style="grid-column:1 / -1">
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">Qual serviço te interessa? <span style="color:#DDB830">*</span></label>
+            <div style="position:relative">
+              <select name="servico" required="" style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 44px 15px 16px;font-family:inherit;font-size:15px;color:rgba(255,255,255,0.6);outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;transition:border-color 160ms,box-shadow 160ms" onChange="this.style.color='#fff'" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'">
+                <option value="" disabled="" selected="">Selecione</option>
+                <option value="tax">Consultoria Tributária</option>
+                <option value="advisory">Contabilidade Consultiva</option>
+                <option value="audit">Auditoria Independente</option>
+                <option value="multi">Mais de uma frente</option>
+                <option value="indef">Ainda não sei</option>
+              </select>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#fff" stroke-width="2" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none"><path d="M4 6l4 4 4-4"></path></svg>
+            </div>
+          </div>
+
+          <div style="grid-column:1 / -1">
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">Faturamento anual aproximado</label>
+            <div style="position:relative">
+              <select name="faturamento" style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 44px 15px 16px;font-family:inherit;font-size:15px;color:rgba(255,255,255,0.6);outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;transition:border-color 160ms,box-shadow 160ms" onChange="this.style.color='#fff'" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'">
+                <option value="" disabled="" selected="">Selecione</option>
+                <option value="ate5">Até R$ 5 milhões</option>
+                <option value="5a20">R$ 5 a 20 milhões</option>
+                <option value="20a100">R$ 20 a 100 milhões</option>
+                <option value="100mais">Acima de R$ 100 milhões</option>
+              </select>
+              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="#fff" stroke-width="2" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none"><path d="M4 6l4 4 4-4"></path></svg>
+            </div>
+          </div>
+
+          <div style="grid-column:1 / -1">
+            <label style="display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:11px">Mensagem</label>
+            <textarea name="mensagem" rows="4" placeholder="Conte brevemente sobre o que você precisa..." style="width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:15px 16px;font-family:inherit;font-size:15px;line-height:1.55;color:#fff;outline:none;resize:vertical;min-height:132px;transition:border-color 160ms,box-shadow 160ms" onFocus="this.style.borderColor='rgba(255,255,255,0.4)';this.style.boxShadow='0 0 0 3px rgba(255,255,255,0.12)'" onBlur="this.style.borderColor='rgba(255,255,255,0.2)';this.style.boxShadow='none'"></textarea>
+          </div>
+
+          <div style="grid-column:1 / -1;margin-top:8px">
+            <button type="submit" style="display:flex;align-items:center;justify-content:center;gap:11px;width:100%;background:#DDB830;color:#13271A;border:none;padding:21px;font-family:inherit;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border-radius:2px;cursor:pointer;transition:background 160ms,transform 100ms" onMouseOver="this.style.background='#F5D666';this.querySelector('svg').style.transform='translateX(5px)'" onMouseOut="this.style.background='#DDB830';this.querySelector('svg').style.transform='translateX(0)'" onMouseDown="this.style.transform='scale(0.99)'" onMouseUp="this.style.transform='scale(1)'">
+              <span class="bio-ul-text">Enviar mensagem</span>
+              <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- success state -->
+        <div id="contato-sucesso" style="display:none;align-items:center;gap:18px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:2px;padding:32px 34px;margin-top:4px">
+          <div style="flex-shrink:0;width:46px;height:46px;border-radius:50%;background:#DDB830;display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#13271A" stroke-width="2.4"><path d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <div>
+            <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:4px">Mensagem enviada.</div>
+            <div style="font-size:15px;color:rgba(255,255,255,0.82)">Um sócio retorna em breve. Obrigado pelo contato.</div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer style="position:relative;background:#13271A;color:#fff;padding:80px 56px 40px;overflow:hidden">
+
+    <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto">
+
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:56px;flex-wrap:wrap;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.12)">
+
+        <!-- brand + social -->
+        <div style="display:flex;flex-direction:column;gap:26px;max-width:340px">
+          <img src="assets/LogoHeader.png" alt="BioBrz" style="height:32px;width:auto;object-fit:contain;display:block;align-self:flex-start">
+          <p style="font-size:15px;font-weight:400;line-height:1.6;color:rgba(255,255,255,0.6)">Boutique de consultoria tributária, contabilidade consultiva e auditoria independente.</p>
+
+          <div style="display:flex;align-items:center;gap:12px">
+            <a href="https://www.instagram.com/biobrazilconsultores/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:rgba(255,255,255,0.8);transition:background 180ms,border-color 180ms,color 180ms" onMouseOver="this.style.background='#DDB830';this.style.borderColor='#DDB830';this.style.color='#13271A'" onMouseOut="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.8)'">
+              <svg viewBox="0 0 19.72 19.68" width="18" height="18" fill="currentColor"><path d="M9.84,1.79c2.62,0,2.93,0,3.97.06.62,0,1.24.12,1.82.34.85.33,1.53,1.01,1.86,1.86.22.58.33,1.2.34,1.82.05,1.04.06,1.35.06,3.97s0,2.93-.06,3.97c0,.62-.12,1.24-.34,1.82-.33.85-1.01,1.53-1.86,1.86-.58.22-1.2.33-1.82.34-1.04.05-1.35.06-3.97.06s-2.93,0-3.97-.06c-.62,0-1.24-.12-1.82-.34-.85-.34-1.51-1.01-1.84-1.87-.22-.58-.33-1.2-.34-1.82-.05-1.04-.06-1.35-.06-3.97s0-2.93.06-3.97c0-.62.12-1.24.34-1.82.33-.84,1-1.51,1.84-1.84.58-.22,1.2-.33,1.82-.34,1.04-.05,1.35-.06,3.97-.06M9.84.04C7.17.04,6.84.04,5.79.09c-.82.02-1.62.17-2.39.46-1.33.51-2.38,1.56-2.89,2.89-.29.76-.44,1.57-.46,2.39-.05,1.05-.06,1.38-.06,4.05s0,3,.06,4.05c.03.81.2,1.6.5,2.35.51,1.33,1.56,2.38,2.89,2.89.76.29,1.57.44,2.39.46,1.05.05,1.38.06,4.05.06s3,0,4.05-.06c.82-.02,1.62-.17,2.39-.46,1.33-.51,2.38-1.56,2.89-2.89.29-.76.44-1.57.46-2.39.05-1.05.06-1.38.06-4.05s0-3-.06-4.05c-.02-.82-.17-1.62-.46-2.39-.51-1.33-1.56-2.38-2.89-2.89-.76-.29-1.57-.44-2.39-.46-1.05-.05-1.38-.06-4.05-.06l-.04.04Z"></path><path d="M9.84,4.8c-2.79,0-5.04,2.26-5.04,5.04s2.26,5.04,5.04,5.04,5.04-2.26,5.04-5.04-2.26-5.04-5.04-5.04h0ZM9.84,13.11c-1.81,0-3.27-1.47-3.27-3.27s1.47-3.27,3.27-3.27,3.27,1.47,3.27,3.27h0c0,1.81-1.47,3.27-3.27,3.27Z"></path><circle cx="15.08" cy="4.6" r="1.18"></circle></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/biobrazilconsultores/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:rgba(255,255,255,0.8);transition:background 180ms,border-color 180ms,color 180ms" onMouseOver="this.style.background='#DDB830';this.style.borderColor='#DDB830';this.style.color='#13271A'" onMouseOut="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.8)'">
+              <svg viewBox="0 0 20.4 20.35" width="18" height="18" fill="currentColor"><path d="M.33,6.76h4.23v13.6H.33V6.76ZM2.45,0c1.35,0,2.45,1.1,2.45,2.45s-1.1,2.45-2.45,2.45S0,3.8,0,2.45,1.1,0,2.45,0h0"></path><path d="M7.21,6.76h4.05v1.86h.08c.83-1.41,2.36-2.25,4-2.19,4.28,0,5.07,2.81,5.07,6.47v7.46h-4.22v-6.61c0-1.58-.03-3.61-2.19-3.61s-2.54,1.71-2.54,3.49v6.73h-4.22l-.02-13.6Z"></path></svg>
+            </a>
+            <a href="mailto:contato@biobrz.com.br" aria-label="E-mail" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:rgba(255,255,255,0.8);transition:background 180ms,border-color 180ms,color 180ms" onMouseOver="this.style.background='#DDB830';this.style.borderColor='#DDB830';this.style.color='#13271A'" onMouseOut="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.8)'">
+              <svg viewBox="0 0 22 18" width="18" height="18" fill="currentColor"><path d="M22,18H0V0h22v18ZM2,16h18V2H2v14Z"></path><polygon points="11 11.35 .33 1.74 1.67 .26 11 8.65 20.33 .26 21.67 1.74 11 11.35"></polygon></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- nav links -->
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#DDB830;margin-bottom:4px">Navegação</div>
+          <a href="#home" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Home</a>
+          <a href="Tax.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Tax</a>
+          <a href="Advisory.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Advisory</a>
+          <a href="Audit.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Audit</a>
+        </div>
+
+        <!-- contact -->
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#DDB830;margin-bottom:4px">Contato</div>
+          <a href="mailto:contato@biobrz.com.br" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">contato@biobrz.com.br</a>
+          <span style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78)">Brasília, DF · Atendimento nacional</span>
+          <a href="#contato" style="display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#DDB830;text-decoration:none;transition:gap 200ms" onMouseOver="this.style.gap='12px'" onMouseOut="this.style.gap='8px'">
+            <span class="bio-ul-text">Falar com especialista</span>
+            <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:28px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.04em;color:rgba(255,255,255,0.45)">© 2026 BioBrz Consultores. Todos os direitos reservados.</span>
+
+      </div>
+
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    // ── Smooth scroll for anchor links ──
+    const HEADER_H = 71;
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const start = window.scrollY;
+        const end = target.getBoundingClientRect().top + window.scrollY - HEADER_H;
+        const duration = 820;
+        const t0 = performance.now();
+        const ease = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+        const step = now => {
+          const p = Math.min((now - t0) / duration, 1);
+          window.scrollTo(0, start + (end - start) * ease(p));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    });
+
+    // ── Hero video loop ──
+    const vid = document.getElementById('hero-bg-video');
+    if (vid) {
+      vid.muted = true;
+      vid.loop = true;
+      vid.play().catch(() => {});
+      vid.addEventListener('ended', () => { vid.currentTime = 0; vid.play().catch(() => {}); });
+    }
+
+    // ── Frentes accordion ──
+    const cards = document.querySelectorAll('.frente-card');
+    const setOpen = (card, open) => {
+      const body = card.querySelector('.frente-body');
+      const arrow = card.querySelector('.frente-arrow');
+      const inner = body.firstElementChild;
+      if (open) {
+        body.style.maxHeight = inner.scrollHeight + 'px';
+        body.style.opacity = '1';
+        arrow.querySelector('svg').style.transform = 'rotate(45deg)';
+        arrow.style.background = '#3E7853';
+        arrow.style.borderColor = '#3E7853';
+        arrow.style.color = '#fff';
+      } else {
+        body.style.maxHeight = '0px';
+        body.style.opacity = '0';
+        arrow.querySelector('svg').style.transform = 'rotate(0deg)';
+        arrow.style.background = 'transparent';
+        arrow.style.borderColor = 'rgba(19,39,26,0.25)';
+        arrow.style.color = '#13271A';
+      }
+    };
+    cards.forEach((card) => {
+      const header = card.querySelector('.frente-header');
+      header.addEventListener('click', () => setOpen(card, !card.classList.toggle('open') ? false : true));
+    });
+    // keep maxHeight correct on resize for any open card
+    window.addEventListener('resize', () => {
+      cards.forEach((c) => { if (c.classList.contains('open')) setOpen(c, true); });
+    });
+
+
+    // ── Contact form submit ──
+    const form = document.getElementById('contato-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const req = ['nome', 'empresa', 'email', 'servico'];
+        const flag = (el, bad) => {
+          el.style.borderColor = bad ? '#C0392B' : 'rgba(19,39,26,0.18)';
+          el.style.boxShadow = bad ? '0 0 0 3px rgba(192,57,43,0.12)' : 'none';
+        };
+        let firstBad = null;
+        req.forEach((n) => {
+          const el = form.elements[n];
+          if (!el) return;
+          const val = (el.value || '').trim();
+          const isEmail = n === 'email';
+          const bad = !val || (isEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
+          flag(el, bad);
+          if (bad && !firstBad) firstBad = el;
+        });
+        if (firstBad) { firstBad.focus(); return; }
+        const grid = form.querySelector('div');
+        const ok = document.getElementById('contato-sucesso');
+        if (grid) grid.style.display = 'none';
+        if (ok) ok.style.display = 'flex';
+      });
+    }
+
+    // ── Fade-up reveal ──
+    const fadeEls = document.querySelectorAll('.bio-fadein');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bio-visible'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    // ── Animated counters ──
+    const grid = document.getElementById('bio-stats-grid');
+    if (!grid) return;
+    let counted = false;
+    const counterObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll('.bio-counter').forEach(el => {
+          const target = parseFloat(el.dataset.value);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1600;
+          const start = performance.now();
+          const isInt = Number.isInteger(target);
+          const step = (now) => {
+            const p = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            const val = target * ease;
+            el.textContent = (isInt ? Math.round(val) : val.toFixed(1)) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        });
+        counterObs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    counterObs.observe(grid);
+
+    // ── Tilt cards ──
+    document.querySelectorAll('.bio-tilt-card').forEach(card => {
+      const glare = document.createElement('div');
+      glare.setAttribute('aria-hidden', 'true');
+      glare.style.cssText = 'position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 240ms ease;border-radius:inherit;z-index:1';
+      card.appendChild(glare);
+      card.style.willChange = 'transform';
+      card.style.transformStyle = 'preserve-3d';
+      card.style.transition = 'box-shadow 300ms ease';
+
+      let rx = 0, ry = 0, tRx = 0, tRy = 0, running = false;
+      const MAX = 10, LERP = 0.1;
+
+      const tick = () => {
+        rx += (tRx - rx) * LERP;
+        ry += (tRy - ry) * LERP;
+        const done = Math.abs(tRx - rx) < 0.01 && Math.abs(tRy - ry) < 0.01;
+        if (done) { rx = tRx; ry = tRy; }
+        const scale = (tRx === 0 && tRy === 0 && done) ? 1 : 1.025;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(${scale},${scale},${scale})`;
+        running = !done;
+        if (!done) requestAnimationFrame(tick);
+      };
+
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        tRy = (px - 0.5) * MAX;
+        tRx = (0.5 - py) * MAX;
+        glare.style.background = `radial-gradient(circle at ${px*100}% ${py*100}%, rgba(255,255,255,0.18), transparent 62%)`;
+        glare.style.opacity = '1';
+        card.style.boxShadow = '0 24px 48px rgba(0,0,0,0.45)';
+        if (!running) { running = true; tick(); }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        tRx = 0; tRy = 0;
+        glare.style.opacity = '0';
+        card.style.boxShadow = '';
+        if (!running) { running = true; tick(); }
+      });
+    });
+  }
+  _old_componentDidMount() {
+    const canvas = document.getElementById('brazil-map');
+    const section = document.getElementById('home');
+    if (!canvas || !section) return;
+    this.canvas = canvas; this.section = section; this.ctx = canvas.getContext('2d');
+    this.mouse = { x: -9999, y: -9999, active: false };
+    this.poly = [
+      [360,28],[400,52],[424,40],[452,74],[470,116],[540,120],[598,150],[660,190],[706,224],[728,258],
+      [724,298],[700,342],[664,380],[642,420],[622,452],[598,482],[560,502],[540,528],[502,548],[470,568],
+      [442,590],[412,614],[396,648],[380,684],[348,662],[318,622],[300,582],[300,546],[280,520],[266,482],
+      [254,442],[238,392],[200,372],[150,360],[110,346],[74,336],[92,308],[132,296],[108,268],[68,250],
+      [54,234],[78,204],[116,186],[96,150],[132,120],[182,96],[232,78],[296,58]
+    ];
+    this.box = { minX: 54, maxX: 728, minY: 28, maxY: 684 };
+    this.dots = [];
+    this._onMove = (e) => {
+      const r = this.canvas.getBoundingClientRect();
+      this.mouse.x = e.clientX - r.left; this.mouse.y = e.clientY - r.top; this.mouse.active = true;
+    };
+    this._onLeave = () => { this.mouse.active = false; };
+    this._onResize = () => this.layout();
+    section.addEventListener('mousemove', this._onMove);
+    section.addEventListener('mouseleave', this._onLeave);
+    window.addEventListener('resize', this._onResize);
+    this.layout();
+    this.loop();
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this._raf);
+    window.removeEventListener('resize', this._onResize);
+    if (this.section) {
+      this.section.removeEventListener('mousemove', this._onMove);
+      this.section.removeEventListener('mouseleave', this._onLeave);
+    }
+  }
+  inside(x, y) {
+    const p = this.poly; let c = false;
+    for (let i = 0, j = p.length - 1; i < p.length; j = i++) {
+      const xi = p[i][0], yi = p[i][1], xj = p[j][0], yj = p[j][1];
+      if (((yi > y) != (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) c = !c;
+    }
+    return c;
+  }
+  layout() {
+    const c = this.canvas;
+    const rect = this.section.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    this.W = rect.width; this.H = rect.height;
+    c.width = Math.round(this.W * dpr); c.height = Math.round(this.H * dpr);
+    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const bw = this.box.maxX - this.box.minX, bh = this.box.maxY - this.box.minY;
+    const targetH = Math.min(this.H * 0.86, this.W * 0.6 * bh / bw);
+    const scale = targetH / bh;
+    const targetW = bw * scale;
+    const offX = this.W * 0.64 - targetW / 2;
+    const offY = this.H * 0.5 - targetH / 2;
+    const step = 16; this.dots = [];
+    for (let y = this.box.minY + step / 2; y < this.box.maxY; y += step) {
+      for (let x = this.box.minX + step / 2; x < this.box.maxX; x += step) {
+        if (this.inside(x, y)) {
+          this.dots.push({ x: offX + (x - this.box.minX) * scale, y: offY + (y - this.box.minY) * scale, r: 0, a: 0 });
+        }
+      }
+    }
+    this.baseR = Math.max(1.3, scale * 1.85);
+    this.maxR = this.baseR * 2.7;
+    this.influence = Math.max(120, targetW * 0.3);
+  }
+  loop() {
+    const ctx = this.ctx; if (!ctx) return;
+    ctx.clearRect(0, 0, this.W, this.H);
+    const m = this.mouse, inf = this.influence;
+    for (const d of this.dots) {
+      let t = 0;
+      if (m.active) {
+        const dx = d.x - m.x, dy = d.y - m.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < inf) { t = 1 - dist / inf; t = t * t; }
+      }
+      const tr = this.baseR + (this.maxR - this.baseR) * t;
+      const ta = 0.14 + (0.92 - 0.14) * t;
+      d.r += (tr - d.r) * 0.18; d.a += (ta - d.a) * 0.18;
+      let col;
+      if (t > 0.02) {
+        const r = Math.round(62 + (221 - 62) * t);
+        const g = Math.round(120 + (184 - 120) * t);
+        const b = Math.round(83 + (48 - 83) * t);
+        col = 'rgba(' + r + ',' + g + ',' + b + ',' + d.a + ')';
+      } else {
+        col = 'rgba(62,120,83,' + d.a + ')';
+      }
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, 6.2832); ctx.fill();
+    }
+    this._raf = requestAnimationFrame(() => this.loop());
+  }
+}
+</script>
+</body>
+</html>

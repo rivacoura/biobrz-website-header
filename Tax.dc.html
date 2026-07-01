@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/tokens/typography.css">
+  <script src="_ds/biobrz-design-system-d13c3c23-432b-4556-b0a1-195826281444/_ds_bundle.js"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Barlow','Helvetica Neue',Arial,sans-serif;background:#F5F1E6;color:#000;-webkit-font-smoothing:antialiased}
+    @keyframes bioFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .bio-fadein{opacity:0;transform:translateY(28px)}
+    .bio-fadein.bio-visible{animation:bioFadeUp 0.72s cubic-bezier(0.22,1,0.36,1) both}
+    .bio-ul{position:relative;display:inline;text-decoration:none}
+    .bio-ul::before{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:currentColor;transform-origin:right center;transform:scaleX(0);transition:transform 300ms cubic-bezier(0.4,0,0.2,1)}
+    .bio-ul:hover::before{transform-origin:left center;transform:scaleX(1)}
+    .bio-ul-active::before{transform:scaleX(1)}
+    .bio-ul-text{position:relative;display:inline}
+    .bio-ul-text::before{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:currentColor;transform-origin:right center;transform:scaleX(0);transition:transform 300ms cubic-bezier(0.4,0,0.2,1)}
+    a:hover .bio-ul-text::before,button:hover .bio-ul-text::before{transform-origin:left center;transform:scaleX(1)}
+    .bio-btn-arrow path{stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset 320ms cubic-bezier(0.4,0,0.2,1),transform 280ms cubic-bezier(0.22,1,0.36,1)}
+    a:hover .bio-btn-arrow path,button:hover .bio-btn-arrow path{stroke-dashoffset:0}
+    .svc-row{transition:padding-left 360ms cubic-bezier(0.22,1,0.36,1),background 300ms ease}
+    .svc-row:hover{padding-left:20px}
+    .svc-row span:nth-of-type(2){position:relative}
+    .svc-row span:nth-of-type(2)::before{content:'';position:absolute;left:0;bottom:-4px;width:100%;height:1.5px;background:currentColor;transform-origin:right center;transform:scaleX(0);transition:transform 300ms cubic-bezier(0.4,0,0.2,1)}
+    .svc-row:hover span:nth-of-type(2)::before{transform-origin:left center;transform:scaleX(1)}
+    .svc-row:hover .svc-arrow{opacity:1;transform:translate(0,0)}
+    .svc-row:hover .svc-num{color:#3E7853}
+    .svc-arrow{opacity:0;transform:translate(-8px,4px);transition:opacity 320ms ease,transform 360ms cubic-bezier(0.22,1,0.36,1)}
+    .svc-num{transition:color 300ms ease}
+  </style>
+</helmet>
+
+<div style="min-height:100vh;background:#F5F1E6">
+
+  <!-- ───────── HEADER ───────── -->
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:18px 56px;background:#13271A;border-bottom:1px solid rgba(221,184,48,0.18)">
+    <a href="BIOBRZ Site.dc.html" style="display:block"><img src="assets/LogoHeader.png" alt="BioBrz" style="height:32px;width:auto;object-fit:contain;display:block"></a>
+    <div style="display:flex;align-items:center;gap:48px">
+      <nav style="display:flex;align-items:center;gap:38px">
+        <a href="BIOBRZ Site.dc.html" class="bio-ul" style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 200ms" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='rgba(255,255,255,0.72)'">Home</a>
+        <a href="Tax.dc.html" class="bio-ul bio-ul-active" style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#DDB830">Tax</a>
+        <a href="Advisory.dc.html" class="bio-ul" style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 200ms" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='rgba(255,255,255,0.72)'">Advisory</a>
+        <a href="Audit.dc.html" class="bio-ul" style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.72);transition:color 200ms" onMouseOver="this.style.color='#fff'" onMouseOut="this.style.color='rgba(255,255,255,0.72)'">Audit</a>
+      </nav>
+      <a href="BIOBRZ Site.dc.html#contato" style="display:inline-flex;align-items:center;gap:9px;background:#DDB830;color:#13271A;padding:13px 24px;font-size:11.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#E8CA62';this.querySelector('svg').style.transform='translate(2px,-2px)'" onMouseOut="this.style.background='#DDB830';this.querySelector('svg').style.transform='translate(0,0)'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
+        <span class="bio-ul-text">Falar com especialista</span>
+        <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ───────── HERO ───────── -->
+  <section style="position:relative;overflow:hidden;background:#13271A;color:#fff;padding:130px 56px 120px">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/tax-hero.png');background-size:cover;background-position:center;z-index:0"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,39,26,0.92) 0%,rgba(19,39,26,0.78) 42%,rgba(19,39,26,0.35) 100%);pointer-events:none;z-index:0"></div>
+
+    <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto">
+
+      <div class="bio-fadein" style="margin-bottom:44px">
+        <span style="display:inline-flex;align-items:center;padding:8px 16px;border:1px solid rgba(221,184,48,0.5);border-radius:999px;font-size:12px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#DDB830">BioBrz — Tax</span>
+      </div>
+
+      <h1 class="bio-fadein" style="font-size:clamp(42px,6.6vw,94px);font-weight:300;line-height:1.0;letter-spacing:0.01em;text-transform:uppercase;max-width:15ch;margin-bottom:48px;animation-delay:0.08s;text-wrap:balance">
+        <span style="color:#fff">Consultoria<br>Tributária</span><br>
+        <span style="color:#DDB830;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px;text-decoration-color:rgba(221,184,48,0.4)">Estratégica</span>
+      </h1>
+
+      <p class="bio-fadein" style="font-size:clamp(20px,2.3vw,28px);font-weight:600;line-height:1.36;color:#fff;text-transform:uppercase;max-width:24ch;animation-delay:0.16s">
+        O imposto certo libera o crescimento.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ───────── ABORDAGEM ───────── -->
+  <section style="position:relative;background:#F5F1E6;color:#13271A;padding:124px 56px;overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto">
+
+      <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:60px">
+        <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#3E7853">A Abordagem</span>
+      </div>
+
+      <p class="bio-fadein" style="font-size:clamp(24px,3vw,38px);font-weight:300;line-height:1.34;letter-spacing:0.005em;color:#4A4A4A;max-width:20ch;max-width:24ch;margin-bottom:88px;animation-delay:0.06s;text-wrap:pretty;max-width:1000px">
+        No universo tributário brasileiro, a diferença entre pagar bem e pagar a mais raramente está nas grandes linhas da legislação. Está nas <strong style="color:#13271A;font-weight:600">notas de rodapé. Nos parágrafos únicos. Nas exceções dentro das exceções.</strong>
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:56px;border-top:1px solid rgba(19,39,26,0.16)">
+        <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.7;color:#4A4A4A;animation-delay:0.14s">
+          A BioBrz Tax não reage ao que o fisco exige. Antecipa, estrutura e orienta — transformando cada decisão tributária em uma vantagem competitiva mensurável, com impacto direto na margem e no caixa do cliente.
+        </p>
+        <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.7;color:#4A4A4A;animation-delay:0.22s">
+          Identificamos o que foi pago além do necessário, estruturamos o que deve ser pago daqui em diante e acompanhamos cada ciclo com o mesmo sócio, do início ao resultado.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────── ESCOPO ───────── -->
+  <section style="position:relative;background:#F5F1E6;color:#13271A;padding:0 56px 128px;overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto">
+
+      <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+        <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#3E7853">Escopo de Atuação</span>
+      </div>
+
+      <div style="border-bottom:1px solid rgba(19,39,26,0.16)">
+
+        <div class="svc-row bio-fadein" style="display:flex;align-items:center;gap:36px;padding:36px 0;border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.08s">
+          <span class="svc-num" style="flex-shrink:0;width:54px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#DDB830">01</span>
+          <span style="flex:1;min-width:0;font-size:clamp(20px,2.2vw,28px);font-weight:500;letter-spacing:-0.005em;line-height:1.2;color:#13271A">Diagnóstico tributário completo da operação</span>
+          <svg class="svc-arrow" viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="#3E7853" stroke-width="1.5" style="flex-shrink:0"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+        </div>
+
+        <div class="svc-row bio-fadein" style="display:flex;align-items:center;gap:36px;padding:36px 0;border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.14s">
+          <span class="svc-num" style="flex-shrink:0;width:54px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#DDB830">02</span>
+          <span style="flex:1;min-width:0;font-size:clamp(20px,2.2vw,28px);font-weight:500;letter-spacing:-0.005em;line-height:1.2;color:#13271A">Planejamento tributário preventivo e estratégico</span>
+          <svg class="svc-arrow" viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="#3E7853" stroke-width="1.5" style="flex-shrink:0"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+        </div>
+
+        <div class="svc-row bio-fadein" style="display:flex;align-items:center;gap:36px;padding:36px 0;border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.2s">
+          <span class="svc-num" style="flex-shrink:0;width:54px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#DDB830">03</span>
+          <span style="flex:1;min-width:0;font-size:clamp(20px,2.2vw,28px);font-weight:500;letter-spacing:-0.005em;line-height:1.2;color:#13271A">Recuperação de créditos tributários pagos a mais</span>
+          <svg class="svc-arrow" viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="#3E7853" stroke-width="1.5" style="flex-shrink:0"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+        </div>
+
+        <div class="svc-row bio-fadein" style="display:flex;align-items:center;gap:36px;padding:36px 0;border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.26s">
+          <span class="svc-num" style="flex-shrink:0;width:54px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#DDB830">04</span>
+          <span style="flex:1;min-width:0;font-size:clamp(20px,2.2vw,28px);font-weight:500;letter-spacing:-0.005em;line-height:1.2;color:#13271A">Estruturação de operações societárias e M&amp;A</span>
+          <svg class="svc-arrow" viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="#3E7853" stroke-width="1.5" style="flex-shrink:0"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+        </div>
+
+        <div class="svc-row bio-fadein" style="display:flex;align-items:center;gap:36px;padding:36px 0;border-top:1px solid rgba(19,39,26,0.16);animation-delay:0.32s">
+          <span class="svc-num" style="flex-shrink:0;width:54px;font-size:14px;font-weight:700;letter-spacing:0.04em;color:#DDB830">05</span>
+          <span style="flex:1;min-width:0;font-size:clamp(20px,2.2vw,28px);font-weight:500;letter-spacing:-0.005em;line-height:1.2;color:#13271A">Adequação à Reforma Tributária com antecedência</span>
+          <svg class="svc-arrow" viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="#3E7853" stroke-width="1.5" style="flex-shrink:0"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────── CTA ───────── -->
+  <section style="position:relative;background:#000;color:#fff;padding:110px 56px;overflow:hidden">
+    <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:48px;flex-wrap:wrap">
+      <div>
+        <div class="bio-fadein" style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+          <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+          <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6)">Fale com a BioBrz</span>
+        </div>
+        <h2 class="bio-fadein" style="font-size:clamp(34px,4.4vw,60px);font-weight:400;line-height:1.04;letter-spacing:0.01em;text-transform:uppercase;animation-delay:0.08s">
+          <span style="color:#fff">O imposto que você pagou a mais nos últimos 5 anos</span> <span style="color:#DDB830">ainda pode voltar.</span>
+        </h2>
+      </div>
+      <a href="BIOBRZ Site.dc.html#contato" class="bio-fadein" style="display:inline-flex;align-items:center;gap:12px;background:#DDB830;color:#13271A;padding:19px 38px;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;animation-delay:0.16s;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#F5D666';this.querySelector('svg').style.transform='translate(2px,-2px)'" onMouseOut="this.style.background='#DDB830';this.querySelector('svg').style.transform='translate(0,0)'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
+        <span class="bio-ul-text">Solicitar Diagnóstico</span>
+        <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ───────── FOOTER ───────── -->
+  <footer style="position:relative;background:#13271A;color:#fff;padding:80px 56px 40px;overflow:hidden">
+    <div style="position:relative;z-index:1;max-width:1240px;margin:0 auto">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:56px;flex-wrap:wrap;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,0.12)">
+
+        <div style="display:flex;flex-direction:column;gap:26px;max-width:340px">
+          <a href="BIOBRZ Site.dc.html" style="display:block;align-self:flex-start"><img src="assets/LogoHeader.png" alt="BioBrz" style="height:32px;width:auto;object-fit:contain;display:block"></a>
+          <p style="font-size:15px;font-weight:400;line-height:1.6;color:rgba(255,255,255,0.6)">Boutique de consultoria tributária, contabilidade consultiva e auditoria independente.</p>
+          <div style="display:flex;align-items:center;gap:12px">
+            <a href="https://www.instagram.com/biobrazilconsultores/" target="_blank" rel="noopener" aria-label="Instagram" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:rgba(255,255,255,0.8);transition:background 180ms,border-color 180ms,color 180ms" onMouseOver="this.style.background='#DDB830';this.style.borderColor='#DDB830';this.style.color='#13271A'" onMouseOut="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.8)'">
+              <svg viewBox="0 0 19.72 19.68" width="18" height="18" fill="currentColor"><path d="M9.84,1.79c2.62,0,2.93,0,3.97.06.62,0,1.24.12,1.82.34.85.33,1.53,1.01,1.86,1.86.22.58.33,1.2.34,1.82.05,1.04.06,1.35.06,3.97s0,2.93-.06,3.97c0,.62-.12,1.24-.34,1.82-.33.85-1.01,1.53-1.86,1.86-.58.22-1.2.33-1.82.34-1.04.05-1.35.06-3.97.06s-2.93,0-3.97-.06c-.62,0-1.24-.12-1.82-.34-.85-.34-1.51-1.01-1.84-1.87-.22-.58-.33-1.2-.34-1.82-.05-1.04-.06-1.35-.06-3.97s0-2.93.06-3.97c0-.62.12-1.24.34-1.82.33-.84,1-1.51,1.84-1.84.58-.22,1.2-.33,1.82-.34,1.04-.05,1.35-.06,3.97-.06M9.84.04C7.17.04,6.84.04,5.79.09c-.82.02-1.62.17-2.39.46-1.33.51-2.38,1.56-2.89,2.89-.29.76-.44,1.57-.46,2.39-.05,1.05-.06,1.38-.06,4.05s0,3,.06,4.05c.03.81.2,1.6.5,2.35.51,1.33,1.56,2.38,2.89,2.89.76.29,1.57.44,2.39.46,1.05.05,1.38.06,4.05.06s3,0,4.05-.06c.82-.02,1.62-.17,2.39-.46,1.33-.51,2.38-1.56,2.89-2.89.29-.76.44-1.57.46-2.39.05-1.05.06-1.38.06-4.05s0-3-.06-4.05c-.02-.82-.17-1.62-.46-2.39-.51-1.33-1.56-2.38-2.89-2.89-.76-.29-1.57-.44-2.39-.46-1.05-.05-1.38-.06-4.05-.06l-.04.04Z"></path><path d="M9.84,4.8c-2.79,0-5.04,2.26-5.04,5.04s2.26,5.04,5.04,5.04,5.04-2.26,5.04-5.04-2.26-5.04-5.04-5.04h0ZM9.84,13.11c-1.81,0-3.27-1.47-3.27-3.27s1.47-3.27,3.27-3.27,3.27,1.47,3.27,3.27h0c0,1.81-1.47,3.27-3.27,3.27Z"></path><circle cx="15.08" cy="4.6" r="1.18"></circle></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/biobrazilconsultores/" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:rgba(255,255,255,0.8);transition:background 180ms,border-color 180ms,color 180ms" onMouseOver="this.style.background='#DDB830';this.style.borderColor='#DDB830';this.style.color='#13271A'" onMouseOut="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.8)'">
+              <svg viewBox="0 0 20.4 20.35" width="18" height="18" fill="currentColor"><path d="M.33,6.76h4.23v13.6H.33V6.76ZM2.45,0c1.35,0,2.45,1.1,2.45,2.45s-1.1,2.45-2.45,2.45S0,3.8,0,2.45,1.1,0,2.45,0h0"></path><path d="M7.21,6.76h4.05v1.86h.08c.83-1.41,2.36-2.25,4-2.19,4.28,0,5.07,2.81,5.07,6.47v7.46h-4.22v-6.61c0-1.58-.03-3.61-2.19-3.61s-2.54,1.71-2.54,3.49v6.73h-4.22l-.02-13.6Z"></path></svg>
+            </a>
+            <a href="mailto:contato@biobrz.com.br" aria-label="E-mail" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;color:rgba(255,255,255,0.8);transition:background 180ms,border-color 180ms,color 180ms" onMouseOver="this.style.background='#DDB830';this.style.borderColor='#DDB830';this.style.color='#13271A'" onMouseOut="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.2)';this.style.color='rgba(255,255,255,0.8)'">
+              <svg viewBox="0 0 22 18" width="18" height="18" fill="currentColor"><path d="M22,18H0V0h22v18ZM2,16h18V2H2v14Z"></path><polygon points="11 11.35 .33 1.74 1.67 .26 11 8.65 20.33 .26 21.67 1.74 11 11.35"></polygon></svg>
+            </a>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#DDB830;margin-bottom:4px">Navegação</div>
+          <a href="BIOBRZ Site.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Home</a>
+          <a href="Tax.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Tax</a>
+          <a href="Advisory.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Advisory</a>
+          <a href="Audit.dc.html" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">Audit</a>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#DDB830;margin-bottom:4px">Contato</div>
+          <a href="mailto:contato@biobrz.com.br" class="bio-ul" style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78);transition:color 160ms" onMouseOver="this.style.color='#DDB830'" onMouseOut="this.style.color='rgba(255,255,255,0.78)'">contato@biobrz.com.br</a>
+          <span style="font-size:14px;font-weight:500;letter-spacing:0.06em;color:rgba(255,255,255,0.78)">Brasília, DF · Atendimento nacional</span>
+          <a href="BIOBRZ Site.dc.html#contato" style="display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#DDB830;text-decoration:none;transition:gap 200ms" onMouseOver="this.style.gap='12px'" onMouseOut="this.style.gap='8px'">
+            <span class="bio-ul-text">Falar com especialista</span>
+            <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13L13 3M6 3h7v7"></path></svg>
+          </a>
+        </div>
+
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:28px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.04em;color:rgba(255,255,255,0.45)">© 2026 BioBrz Consultores. Todos os direitos reservados.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const fadeEls = document.querySelectorAll('.bio-fadein');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bio-visible'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+
+    const HEADER_H = 71;
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        const start = window.scrollY;
+        const end = target.getBoundingClientRect().top + window.scrollY - HEADER_H;
+        const duration = 820;
+        const t0 = performance.now();
+        const ease = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+        const step = now => {
+          const p = Math.min((now - t0) / duration, 1);
+          window.scrollTo(0, start + (end - start) * ease(p));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    });
+  }
+}
+</script>
+</body>
+</html>

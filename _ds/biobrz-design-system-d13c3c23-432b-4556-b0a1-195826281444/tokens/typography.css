@@ -1,0 +1,109 @@
+/* BIOBRZ — Typography Tokens
+   Single typeface system: Barlow (geometric sans-serif).
+   Authority through weight hierarchy. No serifs. */
+
+:root {
+  /* ── Font Families ── */
+  --font-primary: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+
+  /* ── Font Sizes ── */
+  --text-2xs:  0.625rem;   /*  10px */
+  --text-xs:   0.75rem;    /*  12px */
+  --text-sm:   0.875rem;   /*  14px */
+  --text-base: 1rem;       /*  16px */
+  --text-lg:   1.125rem;   /*  18px */
+  --text-xl:   1.25rem;    /*  20px */
+  --text-2xl:  1.5rem;     /*  24px */
+  --text-3xl:  2rem;       /*  32px */
+  --text-4xl:  2.5rem;     /*  40px */
+  --text-5xl:  3.5rem;     /*  56px */
+  --text-6xl:  5rem;       /*  80px */
+  --text-7xl:  6.5rem;     /* 104px */
+
+  /* ── Font Weights ── */
+  --font-light:     300;
+  --font-regular:   400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  /* weights 800 and 900 not used in BioBrz — max is Bold 700 */
+
+  /* ── Line Heights ── */
+  --leading-none:    1.0;
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.6;
+  --leading-loose:   1.8;
+
+  /* ── Letter Spacing ── */
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.08em;
+  --tracking-widest:   0.15em;
+  --tracking-caps:     0.12em;   /* for all-caps labels */
+
+  /* ── Semantic Type Roles ── */
+  --type-display-size:   var(--text-7xl);
+  --type-display-weight: var(--font-regular);
+  --type-display-leading: var(--leading-tight);
+  --type-display-tracking: var(--tracking-tight);
+
+  --type-h1-size:   var(--text-6xl);
+  --type-h1-weight: var(--font-regular);
+  --type-h1-leading: var(--leading-tight);
+
+  --type-h2-size:   var(--text-5xl);
+  --type-h2-weight: var(--font-bold);
+  --type-h2-leading: var(--leading-snug);
+
+  --type-h3-size:   var(--text-4xl);
+  --type-h3-weight: var(--font-bold);
+  --type-h3-leading: var(--leading-snug);
+
+  --type-h4-size:   var(--text-3xl);
+  --type-h4-weight: var(--font-bold);
+  --type-h4-leading: var(--leading-snug);
+
+  --type-h5-size:   var(--text-2xl);
+  --type-h5-weight: var(--font-semibold);
+  --type-h5-leading: var(--leading-snug);
+
+  --type-h6-size:   var(--text-xl);
+  --type-h6-weight: var(--font-semibold);
+  --type-h6-leading: var(--leading-snug);
+
+  --type-lead-size:   var(--text-xl);
+  --type-lead-weight: var(--font-regular);
+  --type-lead-leading: var(--leading-relaxed);
+
+  --type-body-size:   var(--text-base);
+  --type-body-weight: var(--font-regular);
+  --type-body-leading: var(--leading-normal);
+
+  --type-body-sm-size:   var(--text-sm);
+  --type-body-sm-weight: var(--font-regular);
+  --type-body-sm-leading: var(--leading-normal);
+
+  --type-caption-size:   var(--text-xs);
+  --type-caption-weight: var(--font-medium);
+  --type-caption-leading: var(--leading-normal);
+
+  --type-label-size:    var(--text-sm);
+  --type-label-weight:  var(--font-semibold);
+  --type-label-leading: var(--leading-normal);
+
+  --type-overline-size:    var(--text-xs);
+  --type-overline-weight:  var(--font-semibold);
+  --type-overline-leading: var(--leading-normal);
+  --type-overline-tracking: var(--tracking-caps);
+  --type-overline-transform: uppercase;
+
+  --type-cta-size:    var(--text-sm);
+  --type-cta-weight:  var(--font-bold);
+  --type-cta-leading: var(--leading-none);
+  --type-cta-tracking: var(--tracking-wider);
+  --type-cta-transform: uppercase;
+}
