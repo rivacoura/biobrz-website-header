@@ -37,17 +37,18 @@
     #contato-form input::placeholder,#contato-form textarea::placeholder{color:rgba(255,255,255,0.4)}
     /* ───────── MOBILE (hero + header) ───────── */
     .bio-hamburger{display:none}
-    .bio-hero-scrim{display:none}
+    .bio-hero-scrim{display:block}
     .bio-mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:60;background:#13271A;display:flex;flex-direction:column;padding:104px 32px 40px;gap:4px;transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform 440ms cubic-bezier(0.22,1,0.36,1),opacity 320ms ease}
     .bio-mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
     @media (max-width:820px){
       .bio-header{padding:16px 24px !important}
       .bio-desktop-nav{display:none !important}
       .bio-hamburger{display:inline-flex !important}
-      .bio-hero{min-height:auto !important;padding:0 24px !important}
-      .bio-hero-scrim{display:block !important}
-      .bio-hero-inner{max-width:100% !important;padding:112px 0 88px !important}
-      .bio-hero-h1{font-size:clamp(34px,9.5vw,52px) !important;line-height:1.55 !important}
+      .bio-hero{min-height:auto !important;flex-direction:column !important;background:#000 !important}
+      .bio-hero-left{padding-left:0 !important;min-height:520px !important}
+      .bio-hero-inner{max-width:100% !important;padding:112px 24px 40px !important}
+      .bio-hero-right{flex:0 0 auto !important;height:480px !important}
+      .bio-hero-h1{font-size:clamp(40px,12vw,64px) !important;line-height:1.08 !important}
       .bio-hero-h1 span{font-size:inherit !important;padding:0.08em 0.14em !important}
       .bio-hero-lede{font-size:17px !important}
       .bio-hero-actions{flex-direction:column !important;align-items:stretch !important}
@@ -66,6 +67,7 @@
       .bio-frente-cols{grid-template-columns:1fr !important;gap:22px !important}
       .bio-contato-grid{grid-template-columns:1fr !important;gap:56px !important}
       .bio-form-grid{grid-template-columns:1fr !important}
+      #bio-contato-map-grid{grid-template-columns:1fr !important;gap:24px !important}
     }
   </style>
 </helmet>
@@ -116,41 +118,40 @@
   </div>
 
   <!-- ───────── HERO ───────── -->
-  <section id="home" class="bio-hero" style="position:relative;overflow:hidden;display:flex;align-items:center;min-height:calc(100vh - 71px);padding:0 0 0 56px;gap:0">
+  <section id="home" class="bio-hero" style="position:relative;overflow:hidden;display:flex;align-items:stretch;min-height:calc(100vh - 71px)">
 
-    <!-- video background -->
-    <video id="hero-bg-video" autoplay="" loop="" muted="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block">
-      <source src="uploads/magnific_video-upscale_aQeITspfSh.mp4" type="video/mp4">
-    </video>
+    <!-- LEFT COLUMN — texto sobre HERO1 -->
+    <div class="bio-hero-left" style="position:relative;flex:1 1 50%;min-width:0;overflow:hidden;display:flex;align-items:center;padding-left:56px">
 
-    <div class="bio-hero-scrim" aria-hidden="true" style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(245,241,230,0.86) 0%,rgba(245,241,230,0.62) 55%,rgba(245,241,230,0.72) 100%);pointer-events:none"></div>
+      <img class="bio-hero-bg-img" src="assets/hero1-2.png" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;display:block">
 
     <div class="bio-hero-inner" style="flex:1;min-width:0;position:relative;z-index:2;max-width:620px;padding:72px 0 48px;align-self:center">
 
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:32px">
-        <x-import component-from-global-scope="BIOBRZDesignSystem_d13c3c.Badge" variant="subtle-green" size="lg" hint-size="auto,30px">Consultoria Tributária</x-import>
-        <x-import component-from-global-scope="BIOBRZDesignSystem_d13c3c.Badge" variant="subtle-green" size="lg" hint-size="auto,30px">Contabilidade</x-import>
-        <x-import component-from-global-scope="BIOBRZDesignSystem_d13c3c.Badge" variant="subtle-green" size="lg" hint-size="auto,30px">Auditoria Independente</x-import>
-      </div>
 
-      <h1 class="bio-hero-h1" style="font-size: clamp(38px,5.4vw,80px); font-weight: 300; line-height: 1.06; letter-spacing: 0.005em; text-transform: uppercase; color: #13271A; margin-bottom: 36px">
-        <span style="background: #DDB830; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0.06em 0.2em; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.16em; text-decoration-color: #13271A; font-size: 45.99px; padding-top: 0.11em; padding-bottom: 0.11em; padding-left: 0.12em; padding-right: 0.12em">Todo patrimônio<br>carrega uma<br>história.</span>
+      <h1 class="bio-hero-h1" style="font-size: clamp(38px,6.2vw,92px); font-weight: 300; line-height: 1.06; letter-spacing: 0.005em; text-transform: uppercase; color: #fff; margin-bottom: 36px">
+        Todo patrimônio<br>carrega uma<br>história.
       </h1>
 
-      <p class="bio-hero-lede" style="max-width:560px;font-size:19px;font-weight:400;line-height:1.6;color:#4A4A4A;margin-bottom:44px">
-        A BioBrz lê o que os outros não sabem ver. <strong style="color:#13271A;font-weight:600">15 anos</strong> transformando complexidade tributária em vantagem competitiva.
+      <p class="bio-hero-lede" style="max-width:560px;font-size:19px;font-weight:400;line-height:1.6;color:rgba(245,241,230,0.86);margin-bottom:44px">
+        A BioBrz lê o que os outros não sabem ver. <strong style="color:#fff;font-weight:600">15 anos</strong> transformando complexidade tributária em vantagem competitiva.
       </p>
 
       <div class="bio-hero-actions" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <a href="#contato" style="display:inline-flex;align-items:center;gap:10px;background:#3E7853;color:#fff;padding:17px 34px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#326245';this.querySelector('svg').style.transform='translateX(5px)'" onMouseOut="this.style.background='#3E7853';this.querySelector('svg').style.transform='translateX(0)'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
+        <a href="#contato" style="display:inline-flex;align-items:center;gap:10px;background:#DDB830;color:#13271A;padding:17px 34px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 150ms,transform 100ms" onMouseOver="this.style.background='#C7A526'" onMouseOut="this.style.background='#DDB830'" onMouseDown="this.style.transform='scale(0.97)'" onMouseUp="this.style.transform='scale(1)'">
           <span class="bio-ul-text">Falar com especialista</span>
-          <svg class="bio-btn-arrow" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" style="transition:transform 280ms cubic-bezier(0.22,1,0.36,1)"><path d="M3 13L13 3M6 3h7v7"></path></svg>
         </a>
-        <a href="#servicos" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#13271A;padding:17px 30px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid rgba(19,39,26,0.25);transition:border-color 150ms,background 150ms" onMouseOver="this.style.borderColor='#3E7853';this.style.background='rgba(62,120,83,0.05)'" onMouseOut="this.style.borderColor='rgba(19,39,26,0.25)';this.style.background='transparent'">
+        <a href="#servicos" style="display:inline-flex;align-items:center;gap:10px;background:transparent;color:#F5F1E6;padding:17px 30px;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid rgba(245,241,230,0.4);transition:border-color 150ms,background 150ms" onMouseOver="this.style.borderColor='#DDB830';this.style.background='rgba(255,255,255,0.08)'" onMouseOut="this.style.borderColor='rgba(245,241,230,0.4)';this.style.background='transparent'">
           <span class="bio-ul-text">Conhecer os serviços</span>
         </a>
       </div>
 
+    </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN — HERO2 sem filtro -->
+    <div class="bio-hero-right" style="position:relative;flex:1 1 50%;min-width:0;overflow:hidden">
+      <img src="assets/hero2.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
     </div>
 
   </section>
@@ -171,12 +172,12 @@
         <div class="bio-qs-left" style="padding-right:80px">
 
           <h2 class="bio-fadein" style="font-size:clamp(30px,3.5vw,48px);font-weight:400;line-height:1.14;letter-spacing:0.01em;text-transform:uppercase;margin-bottom:40px;animation-delay:0.06s;text-wrap:balance">
-            <span style="color:#1A1A1A">Não somos um escritório de contabilidade comum.</span><br>
+            <span style="color:#1A1A1A">Não somos uma empresa de contabilidade comum.</span><br>
             <span style="color:#3E7853;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:#DDB830">Somos um parceiro que enxerga o seu negócio por inteiro.</span>
           </h2>
 
           <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;max-width:540px;margin-bottom:26px;animation-delay:0.14s">
-            A BioBrz é uma boutique de consultoria tributária e auditoria independente que atua em três frentes integradas. Com <strong style="color:#13271A;font-weight:700">15 anos de mercado</strong>, a empresa se diferencia pelo envolvimento direto dos sócios em cada mandato.
+            A BioBrz é uma boutique de consultoria tributária e auditoria independente que atua em três frentes. Com <strong style="color:#13271A;font-weight:700">15 anos de mercado</strong>, a empresa se diferencia pelo envolvimento dos sócios responsáveis em cada mandato.
           </p>
 
           <p class="bio-fadein" style="font-size:18px;font-weight:400;line-height:1.68;color:#4A4A4A;max-width:540px;margin-bottom:44px;animation-delay:0.2s">
@@ -200,12 +201,12 @@
 
           <div class="bio-fadein" style="padding:30px 0;border-top:1px solid rgba(19,39,26,0.14);animation-delay:0.24s">
             <div class="bio-counter" data-value="3" data-suffix="" style="font-size:clamp(52px,5.5vw,76px);font-weight:300;line-height:0.95;letter-spacing:-0.03em;color:#3E7853;margin-bottom:14px">0</div>
-            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:320px">Frentes integradas: Tax, Advisory e Audit, operando com os mesmos sócios e o mesmo padrão técnico</p>
+            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:320px">Frentes: Tax, Advisory e Audit, operando com o mesmo padrão técnico</p>
           </div>
 
           <div class="bio-fadein" style="padding-top:30px;border-top:1px solid rgba(19,39,26,0.14);animation-delay:0.32s">
             <div style="font-size:clamp(52px,5.5vw,76px);font-weight:300;line-height:0.95;letter-spacing:-0.03em;color:#3E7853;margin-bottom:14px"><span class="bio-counter" data-value="100" data-suffix="">0</span><span style="color:#DDB830">%</span></div>
-            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:300px">Dos mandatos com participação direta dos sócios fundadores, sem delegar o que importa</p>
+            <p style="font-size:16px;font-weight:400;line-height:1.5;color:#4A4A4A;max-width:300px">Dos mandatos com participação direta dos sócios fundadores, responsáveis cada um pelo seu core business, sem delegar o que importa</p>
           </div>
 
         </div>
@@ -241,14 +242,14 @@
 
         <div class="bio-fadein bio-tilt-card" style="padding:40px 36px 40px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;animation-delay:0.22s;overflow:hidden;position:relative">
           <div style="font-size:clamp(56px,5vw,82px);font-weight:200;line-height:1;letter-spacing:-0.04em;color:#DDB830;margin-bottom:38px">02</div>
-          <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:22px">Integração Real</div>
-          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">Tributário, contábil e auditoria não são serviços separados, são camadas do mesmo problema. Tratá-los de forma fragmentada é perder precisão, tempo e dinheiro.</p>
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:22px">Três Frentes em um Só Lugar</div>
+          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">Tributário, contábil e auditoria. Três frentes tratadas em uma única empresa de forma independente e precisa.</p>
         </div>
 
         <div class="bio-fadein bio-tilt-card" style="padding:40px 36px 40px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;animation-delay:0.3s;overflow:hidden;position:relative">
           <div style="font-size:clamp(56px,5vw,82px);font-weight:200;line-height:1;letter-spacing:-0.04em;color:#DDB830;margin-bottom:38px">03</div>
           <div style="font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#fff;margin-bottom:22px">Sócios no Mandato</div>
-          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">Em cada entrega, o sócio está presente. O cliente não contrata uma equipe genérica. Ele ganha um parceiro que enxerga o negócio por inteiro.</p>
+          <p style="font-size:16px;font-weight:400;line-height:1.66;color:rgba(255,255,255,0.62);max-width:300px">O cliente não contrata uma equipe genérica. Ele ganha um parceiro que enxerga o negócio por inteiro. Cada um dos sócios atuando em uma frente de serviço.</p>
         </div>
 
       </div>
@@ -271,11 +272,11 @@
 
           <h2 class="bio-fadein" style="font-size:clamp(30px,4vw,56px);font-weight:400;line-height:1.12;letter-spacing:0.01em;text-transform:uppercase;max-width:18ch;margin-bottom:40px;animation-delay:0.08s;text-wrap:balance">
             <span style="display:block;color:#3E7853;font-weight:300;margin-bottom:6px">Tributário. Contábil. Independente.</span>
-            <span style="color:#3E7853;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:#DDB830">Três frentes. Tudo integrado.</span>
+            <span style="color:#3E7853;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:#DDB830">Três frentes. Tudo no mesmo lugar.</span>
           </h2>
 
           <p class="bio-fadein" style="font-size:19px;font-weight:400;line-height:1.66;color:#4A4A4A;max-width:560px;animation-delay:0.16s">
-            Nascemos da integração entre consultoria tributária, contabilidade e auditoria para construir negócios que vão além dos números.
+            Através da consultoria tributária, contabilidade e auditoria, construímos negócios que vão além dos números.
           </p>
         </div>
 
@@ -377,7 +378,7 @@
         <div class="bio-fadein" style="display:flex;flex-direction:column;gap:30px;animation-delay:0.24s">
           <div>
             <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#DDB830;margin-bottom:9px">Localização</div>
-            <div style="font-size:17px;font-weight:500;color:#fff">Brasília, DF · Atendimento nacional</div>
+            <div style="font-size:17px;font-weight:500;color:#fff">3 unidades · Atendimento nacional</div>
           </div>
           <div>
             <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#DDB830;margin-bottom:9px">E-mail</div>
@@ -472,6 +473,42 @@
       </form>
 
     </div>
+
+    <!-- ───────── MAPA — UNIDADES ───────── -->
+    <div class="bio-fadein" style="position:relative;z-index:1;max-width:1240px;margin:96px auto 0;animation-delay:0.28s">
+
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px">
+        <span style="display:block;width:32px;height:2px;background:#DDB830;flex-shrink:0"></span>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6)">Nossas Unidades</span>
+      </div>
+
+      <div id="bio-contato-map-grid" style="display:grid;grid-template-columns:minmax(0,0.82fr) minmax(0,1.18fr);gap:104px;align-items:start">
+
+        <div id="bio-office-tabs" style="display:flex;flex-direction:column;gap:2px">
+          <button type="button" class="bio-office-tab" data-office="0" style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;background:rgba(255,255,255,0.08);border:none;border-left:2px solid #DDB830;padding:18px 20px;cursor:pointer;font-family:inherit;transition:background 160ms">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#DDB830">Brasília · DF</span>
+            <span style="font-size:15px;font-weight:500;color:#fff">Edifício Imperador</span>
+            <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.6);line-height:1.5">SQN 313 Bloco D, Lote 15 S/N, Asa Norte · 70783-900</span>
+          </button>
+          <button type="button" class="bio-office-tab" data-office="1" style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;background:transparent;border:none;border-left:2px solid transparent;padding:18px 20px;cursor:pointer;font-family:inherit;transition:background 160ms">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5)">São Paulo · SP</span>
+            <span style="font-size:15px;font-weight:500;color:#fff">Torre Alpha</span>
+            <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.6);line-height:1.5">Av. das Nações Unidas, 17007 - Várzea de Baixo · 04730-090</span>
+          </button>
+          <button type="button" class="bio-office-tab" data-office="2" style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;background:transparent;border:none;border-left:2px solid transparent;padding:18px 20px;cursor:pointer;font-family:inherit;transition:background 160ms">
+            <span style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5)">Goiânia · GO</span>
+            <span style="font-size:15px;font-weight:500;color:#fff">E.E. Buena Vista</span>
+            <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.6);line-height:1.5">Avenida 74, Setor Bueno · 74230-020</span>
+          </button>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,0.14);border-radius:2px;overflow:hidden;height:360px">
+          <iframe id="bio-office-map" title="Mapa BioBrz" width="100%" height="100%" style="border:0;display:block;filter:grayscale(0.3) invert(0.92) contrast(0.88)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Edif%C3%ADcio+Imperador,+SQN+313+Bloco+D,+Asa+Norte,+Bras%C3%ADlia+-+DF,+70783-900&output=embed"></iframe>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
   <!-- ───────── FOOTER ───────── -->
@@ -576,15 +613,6 @@ class Component extends DCLogic {
       });
     });
 
-    // ── Hero video loop ──
-    const vid = document.getElementById('hero-bg-video');
-    if (vid) {
-      vid.muted = true;
-      vid.loop = true;
-      vid.play().catch(() => {});
-      vid.addEventListener('ended', () => { vid.currentTime = 0; vid.play().catch(() => {}); });
-    }
-
     // ── Frentes accordion ──
     const cards = document.querySelectorAll('.frente-card');
     const setOpen = (card, open) => {
@@ -617,6 +645,29 @@ class Component extends DCLogic {
     });
 
 
+    // ── Escritórios / mapa ──
+    const officeTabs = document.querySelectorAll('.bio-office-tab');
+    const officeMap = document.getElementById('bio-office-map');
+    const offices = [
+      'Edif%C3%ADcio+Imperador,+SQN+313+Bloco+D,+Asa+Norte,+Bras%C3%ADlia+-+DF,+70783-900',
+      'Av.+das+Na%C3%A7%C3%B5es+Unidas+17007,+V%C3%A1rzea+de+Baixo,+S%C3%A3o+Paulo+-+SP,+04730-090',
+      'Avenida+74,+Setor+Bueno,+Goi%C3%A2nia+-+GO,+74230-020'
+    ];
+    officeTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        officeTabs.forEach((t) => {
+          t.style.background = 'transparent';
+          t.style.borderLeftColor = 'transparent';
+          t.querySelector('span').style.color = 'rgba(255,255,255,0.5)';
+        });
+        tab.style.background = 'rgba(255,255,255,0.08)';
+        tab.style.borderLeftColor = '#DDB830';
+        tab.querySelector('span').style.color = '#DDB830';
+        const i = parseInt(tab.dataset.office, 10);
+        if (officeMap) officeMap.src = 'https://www.google.com/maps?q=' + offices[i] + '&output=embed';
+      });
+    });
+
     // ── Contact form submit ──
     const form = document.getElementById('contato-form');
     if (form) {
@@ -638,10 +689,42 @@ class Component extends DCLogic {
           if (bad && !firstBad) firstBad = el;
         });
         if (firstBad) { firstBad.focus(); return; }
-        const grid = form.querySelector('div');
-        const ok = document.getElementById('contato-sucesso');
-        if (grid) grid.style.display = 'none';
-        if (ok) ok.style.display = 'flex';
+
+        const v = (n) => (form.elements[n] && form.elements[n].value || '').trim();
+        const servicoLabel = form.elements['servico'] && form.elements['servico'].selectedOptions[0] ? form.elements['servico'].selectedOptions[0].textContent : '';
+        const faturamentoLabel = form.elements['faturamento'] && form.elements['faturamento'].selectedOptions[0] ? form.elements['faturamento'].selectedOptions[0].textContent : '';
+        const subject = 'Novo contato pelo site — ' + v('nome') + ' (' + v('empresa') + ')';
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
+
+        fetch('https://formspree.io/f/mvzezpyo', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            _subject: subject,
+            nome: v('nome'),
+            empresa: v('empresa'),
+            email: v('email'),
+            telefone: v('telefone') || '-',
+            servico: servicoLabel || '-',
+            faturamento: faturamentoLabel || '-',
+            mensagem: v('mensagem') || '-'
+          })
+        }).then((res) => {
+          if (res.ok) {
+            const grid = form.querySelector('div');
+            const ok = document.getElementById('contato-sucesso');
+            if (grid) grid.style.display = 'none';
+            if (ok) ok.style.display = 'flex';
+          } else {
+            if (submitBtn) submitBtn.disabled = false;
+            alert('Não foi possível enviar sua mensagem. Tente novamente em instantes.');
+          }
+        }).catch(() => {
+          if (submitBtn) submitBtn.disabled = false;
+          alert('Não foi possível enviar sua mensagem. Verifique sua conexão e tente novamente.');
+        });
       });
     }
 
